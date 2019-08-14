@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import { Button } from '@material-ui/core';
-
 import { SearchInput } from 'components';
+import  UserCreate from '../UserCreate'
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   spacer: {
     flexGrow: 1
   },
-  importButton: {
+  createButton: {
     marginRight: theme.spacing(1)
   },
   exportButton: {
@@ -40,12 +40,7 @@ const UsersToolbar = props => {
     >
       <div className={classes.row}>
         <span className={classes.spacer} />
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          Add user +
-        </Button>
+       < UserCreate/>
       </div>
       <div className={classes.row}>
         <SearchInput

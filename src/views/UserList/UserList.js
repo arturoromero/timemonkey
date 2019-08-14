@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import { UsersToolbar, UsersTable } from './components';
 import mockData from './data';
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3)
@@ -24,8 +25,9 @@ const UserList = () => {
       <div className={classes.content}>
         <UsersTable users={users} />
       </div>
-
+      
     </div>
+
   );
 };
 

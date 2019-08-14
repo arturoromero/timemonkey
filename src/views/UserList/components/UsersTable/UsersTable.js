@@ -6,7 +6,8 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import { makeStyles } from '@material-ui/styles';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {PopupboxManager, PopupboxContainer } from 'react-popupbox';
+import UserCreate from '../UserCreate'
+
 import {
   Card,
   CardActions,
@@ -45,18 +46,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const UsersTable = props => {
-
-  function openPopupbox() {
-        const content = (
-          <div >
-          <span onClick={PopupboxManager.close}>CLOUSE</span>
-            I am a Dialog Box Señor
-          </div>
-        )
-        PopupboxManager.open({ content })
-  }
- 
-
 
   const { className, users, ...rest } = props;
 
@@ -110,11 +99,12 @@ const UsersTable = props => {
   };
 
   return (
+     
     <Card
       {...rest}
       className={clsx(classes.root, className)}
     >
-    <PopupboxContainer />
+    
       <CardContent className={classes.content}>
         <PerfectScrollbar>
           <div className={classes.inner}>
@@ -178,10 +168,7 @@ const UsersTable = props => {
                       {moment(user.createdAt).format('DD/MM/YYYY')}
                     </TableCell>
                      <TableCell>
-                      <div onClick={openPopupbox}>
                       <EditIcon />
-                      </div>
-
                     </TableCell>
                      <TableCell>
                       <DeleteIcon />
