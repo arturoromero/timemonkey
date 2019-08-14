@@ -49,11 +49,13 @@ const UsersTable = props => {
   function openPopupbox() {
         const content = (
           <div >
+          <span onClick={PopupboxManager.close}>CLOUSE</span>
             I am a Dialog Box Señor
           </div>
         )
         PopupboxManager.open({ content })
   }
+ 
 
 
   const { className, users, ...rest } = props;

@@ -22,3 +22,18 @@ a {
 #root {
   height: 100%;
 }
+.popupbox {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    top: 42%;
+    z-index: 999;
+    background: #fff;
+    padding: 13px;
+    border: #f1f1f1 1px solid;
+    left: 25%;
+    display:none;
+}
+.popupbox.is-active{
+  display: block;
+}
