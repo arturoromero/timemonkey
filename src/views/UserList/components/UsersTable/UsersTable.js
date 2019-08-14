@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { makeStyles } from '@material-ui/styles';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import {PopupboxManager, PopupboxContainer } from 'react-popupbox';
 import {
   Card,
   CardActions,
@@ -42,6 +45,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const UsersTable = props => {
+
+  function openPopupbox() {
+        const content = (
+          <div >
+            I am a Dialog Box Señor
+          </div>
+        )
+        PopupboxManager.open({ content })
+  }
+
+
   const { className, users, ...rest } = props;
 
   const classes = useStyles();
@@ -65,6 +79,7 @@ const UsersTable = props => {
   };
 
   const handleSelectOne = (event, id) => {
+
     const selectedIndex = selectedUsers.indexOf(id);
     let newSelectedUsers = [];
 
@@ -97,6 +112,7 @@ const UsersTable = props => {
       {...rest}
       className={clsx(classes.root, className)}
     >
+    <PopupboxContainer />
       <CardContent className={classes.content}>
         <PerfectScrollbar>
           <div className={classes.inner}>
@@ -119,6 +135,8 @@ const UsersTable = props => {
                   <TableCell>Location</TableCell>
                   <TableCell>Phone</TableCell>
                   <TableCell>Registration date</TableCell>
+                  <TableCell>Edit</TableCell>
+                  <TableCell>Delete</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -156,6 +174,15 @@ const UsersTable = props => {
                     <TableCell>{user.phone}</TableCell>
                     <TableCell>
                       {moment(user.createdAt).format('DD/MM/YYYY')}
+                    </TableCell>
+                     <TableCell>
+                      <div onClick={openPopupbox}>
+                      <EditIcon />
+                      </div>
+
+                    </TableCell>
+                     <TableCell>
+                      <DeleteIcon />
                     </TableCell>
                   </TableRow>
                 ))}

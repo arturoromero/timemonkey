@@ -24,6 +24,7 @@ const UserList = () => {
       <div className={classes.content}>
         <UsersTable users={users} />
       </div>
+
     </div>
   );
 };
